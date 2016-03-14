@@ -29,6 +29,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Kcj-4p-Pzf" kind="show" id="Qlr-BJ-5Xi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -64,6 +67,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1187" y="337"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="0cl-UL-XHa">
+            <objects>
+                <viewController id="Kcj-4p-Pzf" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L9B-q9-Gyr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mff-m9-RDb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2HW-IK-RvH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="dreamcatcher description" translatesAutoresizingMaskIntoConstraints="NO" id="zNh-vr-7TS">
+                                <rect key="frame" x="20" y="64" width="560" height="151"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="151" id="Qpl-ga-zaP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zNh-vr-7TS" firstAttribute="top" secondItem="L9B-q9-Gyr" secondAttribute="bottom" id="5Pz-xW-4dl"/>
+                            <constraint firstItem="zNh-vr-7TS" firstAttribute="trailing" secondItem="2HW-IK-RvH" secondAttribute="trailingMargin" id="XOk-De-6Uv"/>
+                            <constraint firstItem="zNh-vr-7TS" firstAttribute="leading" secondItem="2HW-IK-RvH" secondAttribute="leadingMargin" id="Xfd-0C-eaN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dreamDescriptionTextView" destination="zNh-vr-7TS" id="z9B-iO-s45"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZJ-1V-lsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1856" y="337"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C0F-dl-6o6">

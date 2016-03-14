@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3331D121C9705EE00F0E99C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3331D111C9705EE00F0E99C /* DetailViewController.m */; };
 		A3EC58CC1C938E3300DB62BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC58CB1C938E3300DB62BA /* main.m */; };
 		A3EC58CF1C938E3300DB62BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC58CE1C938E3300DB62BA /* AppDelegate.m */; };
 		A3EC58D51C938E3300DB62BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EC58D31C938E3300DB62BA /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A3331D101C9705EE00F0E99C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		A3331D111C9705EE00F0E99C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		A3EC58C71C938E3300DB62BA /* DreamListManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamListManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EC58CB1C938E3300DB62BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3EC58CD1C938E3300DB62BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				A3EC58CE1C938E3300DB62BA /* AppDelegate.m */,
 				A3EC58E11C93916800DB62BA /* ListViewController.h */,
 				A3EC58E21C93916800DB62BA /* ListViewController.m */,
+				A3331D101C9705EE00F0E99C /* DetailViewController.h */,
+				A3331D111C9705EE00F0E99C /* DetailViewController.m */,
 				A3EC58D31C938E3300DB62BA /* Main.storyboard */,
 				A3EC58D61C938E3300DB62BA /* Assets.xcassets */,
 				A3EC58D81C938E3300DB62BA /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 				A3EC58CF1C938E3300DB62BA /* AppDelegate.m in Sources */,
 				A3EC58CC1C938E3300DB62BA /* main.m in Sources */,
 				A3EC58E31C93916800DB62BA /* ListViewController.m in Sources */,
+				A3331D121C9705EE00F0E99C /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +304,7 @@
 				A3EC58E01C938E3300DB62BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
