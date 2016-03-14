@@ -20,15 +20,22 @@
 
 @implementation ListViewController
 
+#pragma mark - View lifecycle methods
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     self.titlesArray = [[NSMutableArray alloc] init];
     self.descriptionsArray = [[NSMutableArray alloc] init];
-
+    self.editing = false;
+    
 
 }
+
+#pragma mark - helper methods
+
 
 -(void)presentDreamEntry {
     
@@ -58,13 +65,7 @@
     
 }
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [self.titlesArray removeObjectAtIndex:indexPath.row];
-    [self.descriptionsArray removeObjectAtIndex:indexPath.row];
-    [self.tableView reloadData];
-    
-}
+#pragma mark - IBAction buttons
 
 - (IBAction)onAddButtonTapped:(UIBarButtonItem *)sender {
     
@@ -73,8 +74,25 @@
 
 
 - (IBAction)onEditButtonTapped:(UIBarButtonItem *)sender {
+    
+    if (self.editing) {
+        self.editing = false;
+        [self.tableView setEditing:false animated:true];
+        sender.style = UIBarButtonItemStylePlain;
+        sender.title = @"Edit";
+    } else {
+        self.editing = true;
+        [self.tableView setEditing:true animated:true];
+        sender.style = UIBarButtonItemStyleDone;
+        sender.title = @"Done";
+
+    }
+    
+    [self.tableView reloadData];
+    
 }
 
+#pragma mark - UITableView delegate methods
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -90,12 +108,47 @@
     
 }
 
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    return YES;
+    
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return YES;
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.titlesArray removeObjectAtIndex:indexPath.row];
+    [self.descriptionsArray removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+    
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    NSString *titleItem = [self.titlesArray objectAtIndex:sourceIndexPath.row];
+    [self.titlesArray removeObject:titleItem];
+    [self.titlesArray insertObject:titleItem atIndex:destinationIndexPath.row];
+    
+    NSString *descriptionItem = [self.descriptionsArray objectAtIndex:sourceIndexPath.row];
+    [self.descriptionsArray removeObject:descriptionItem];
+    [self.descriptionsArray insertObject:descriptionItem atIndex:destinationIndexPath.row];
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - Prepare for Segue
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     DetailViewController *dvc = segue.destinationViewController;
     dvc.titleString = [self.titlesArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     dvc.descriptionString = [self.descriptionsArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-    
     
 }
 
