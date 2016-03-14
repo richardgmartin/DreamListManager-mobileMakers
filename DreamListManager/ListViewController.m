@@ -58,6 +58,14 @@
     
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.titlesArray removeObjectAtIndex:indexPath.row];
+    [self.descriptionsArray removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+    
+}
+
 - (IBAction)onAddButtonTapped:(UIBarButtonItem *)sender {
     
     [self presentDreamEntry];
